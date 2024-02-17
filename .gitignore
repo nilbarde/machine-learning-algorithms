@@ -1,3 +1,6 @@
+# Datasets
+datasets/*
+
 # Custom playground
 *_play.py
 *_play.ipynb
