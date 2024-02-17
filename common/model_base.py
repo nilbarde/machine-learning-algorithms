@@ -21,9 +21,15 @@ class ModelBase():
             test_error = self.getError(test_pred, test_y)
 
             if ((epoch+1) % (num_epochs/100) == 0):
-                print(f"Epoch: {epoch+1}/{num_epochs}; train error: {train_error}; test error: {test_error}", end="\r")
+                self.showError(epoch + 1, num_epochs, train_error, test_error)
             if ((epoch+1) % (num_epochs/10) == 0):
-                print(f"Epoch: {epoch+1}/{num_epochs}; train error: {train_error}; test error: {test_error}")
+                self.showError(epoch + 1, num_epochs, train_error, test_error, keep=True)
+
+    def showError(self, epoch, num_epochs, error_train, error_test, keep=False):
+        error_train = "{:.4f}".format(error_train)
+        error_test = "{:.4f}".format(error_test)
+        end = "\n" if keep else "\r"
+        print(f"Epoch: {epoch}/{num_epochs}; train error: {error_train}; test error: {error_test}", end=end)
 
     def getPrediction(self, data):
         data = self.data_handler.preprocess(data)
@@ -35,4 +41,4 @@ class ModelBase():
     def getError(self, pred, gt):
         error_y = (pred - gt)
         error_sum = ((error_y) ** 2) / pred.shape[0]
-        return np.round(error_sum.sum(), 4)
+        return error_sum.sum()
