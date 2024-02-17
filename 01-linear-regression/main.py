@@ -13,4 +13,4 @@ dataset_path = os.path.join(DATASETS, dataset_name, "data.csv")
 data = DataHandler(dataset_path, normalize=True)
 LR = LinearRegression(data_handler=data)
 
-LR.train()
+LR.train(num_epochs=2000000)

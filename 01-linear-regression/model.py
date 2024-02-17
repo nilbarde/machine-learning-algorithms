@@ -10,7 +10,7 @@ class LinearRegression():
         self.data_handler = data_handler
         self.initWeights()
 
-    def train(self, learning_rate: float=0.00001, num_epochs: int=2000000):
+    def train(self, learning_rate: float=0.00001, num_epochs: int=1000):
         train_x, train_y = self.data_handler.getTrain()
         test_x, test_y = self.data_handler.getTest()
 
