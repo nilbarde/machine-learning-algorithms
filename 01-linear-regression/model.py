@@ -1,6 +1,9 @@
+import sys
+sys.path.append("..")
+
 import numpy as np
 
-from data_handler import DataHandler
+from common.data_handler import DataHandler
 
 class LinearRegression():
     def __init__(self, data_handler: DataHandler):

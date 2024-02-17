@@ -1,5 +1,8 @@
+import sys
+sys.path.append("..")
+
 import os
-from data_handler import DataHandler
+from common.data_handler import DataHandler
 from model import LinearRegression
 
 
