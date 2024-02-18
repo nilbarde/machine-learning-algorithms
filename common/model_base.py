@@ -8,6 +8,9 @@ class ModelBase():
         self._data_handler = data_handler
         self.initWeights()
 
+    def initWeights(self):
+        self._weights = None
+
     def train(self, learning_rate: float=0.00001, num_epochs: int=1000):
         train_x, train_y = self._data_handler.getTrain()
         test_x, test_y = self._data_handler.getTest()
